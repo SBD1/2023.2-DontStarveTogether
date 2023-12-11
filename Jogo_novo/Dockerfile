@@ -1,0 +1,6 @@
+FROM python:3.10
+
+RUN mkdir -p /usr/src/app
+ADD /src    /usr/app
+WORKDIR /usr/app
+RUN pip install psycopg2
