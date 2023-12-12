@@ -1,0 +1,25 @@
+version: "3.9"
+
+services:
+  dontstarve:
+      build:
+          context: .
+          dockerfile: Dockerfile
+      image: sbd1/dontstarve
+      volumes:
+          - .:/app
+      restart: always
+      depends_on:
+          - db
+
+  db:
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d/
+    image: postgres
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=asdfghjkl
+      - POSTGRES_USER=sbd1
+      - POSTGRES_DB=sbd1
+    ports:
+        - "5432:5432"

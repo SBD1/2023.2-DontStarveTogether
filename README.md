@@ -37,6 +37,20 @@ Este repositório contém informações relacionadas ao projeto de criação des
 - [André Goretti](https://github.com/AGoretti)
 - [Yago Amin](https://github.com/Yagoas)
 
+## Jogo Final
+
+### Insturoções
+Para rodar o jogo, basta ir na pasta "Jogo_novo" e rodar o comando. o jogo esta em docker-compose para facilitar o uso.
+```
+./run.sh
+```
+
+### Prints
+
+![a](/assets/img1.jpeg)
+![a](/assets/img2.jpeg)
+
+
 # Histórico de Versão
 
 | Versão |    Data    | Descrição                          | Autor                                                                                                                                  |
@@ -44,5 +58,7 @@ Este repositório contém informações relacionadas ao projeto de criação des
 |  1.0   | 02/10/2023 | Criação do Documento               | [Levi Queiroz](https://github.com/LeviQ27) [Luis Bruno](https://github.com/lbrunofidelis) [Andre Goretti](https://github.com/AGoretti) |
 |  1.1   | 23/10/2023 | Cria tópicos e links p/ documentos | [Luis Bruno](https://github.com/lbrunofidelis)                                                                                         |
 |  1.2   | 29/10/2023 | Atualiza links p/ documentos       | [Yago Amin](https://github.com/Yagoas)                                                                                                 |
-|  1.3   | 21/11/2023 | Atualiza links p/ Triggers/SP e Normalização      | [Luis Bruno](https://github.com/lbrunofidelis)                                                                                         |
+|  1.3   | 21/11/2023 | Atualiza links p/ Triggers/SP e Normalização      | [Luis Bruno](https://github.com/lbrunofidelis)    
+|  1.4   | 11/12/2023 | Jogo Final      | [André Goretti](https://github.com/AGoretti)                                                                                         |
+                                                                                     
 
