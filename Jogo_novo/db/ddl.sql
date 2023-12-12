@@ -167,43 +167,6 @@ CREATE TABLE craft(
 );
 
 
-CREATE OR REPLACE FUNCTION walk_monster() RETURNS trigger as $walk_monster$
-DECLARE
-    id_monstro integer;
-    escolha integer;
-BEGIN
-    SELECT floor(random()*(16))+1 AS numero INTO id_monstro;
-   SELECT floor(random()*(4))+1 AS numero INTO escolha;
-    IF ((SELECT COUNT(*) FROM jogador WHERE id_posicao = (SELECT id_posicao FROM monstro WHERE id = id_monstro )) < 1) THEN
-        IF escolha = 1 THEN
-            IF (SELECT id_posicao FROM monstro WHERE id = id_monstro ) -9 > 0 THEN
-                UPDATE monstro SET id_posicao = (SELECT id_posicao FROM monstro WHERE id = id_monstro ) -9 WHERE id = id_monstro;
-            END IF;
-        END IF;
-        IF escolha = 2 THEN
-            IF (SELECT id_posicao FROM monstro WHERE id = id_monstro ) +1 < 153 THEN
-                UPDATE monstro SET id_posicao = (SELECT id_posicao FROM monstro WHERE id = id_monstro ) +1 WHERE id = id_monstro;
-            END IF;
-        END IF;
-        IF escolha = 3 THEN
-            IF (SELECT id_posicao FROM monstro WHERE id = id_monstro ) -1 > 0 THEN
-                UPDATE monstro SET id_posicao = (SELECT id_posicao FROM monstro WHERE id = id_monstro ) -1 WHERE id = id_monstro;
-            END IF;
-        END IF;
-        IF escolha = 4 THEN
-            IF (SELECT id_posicao FROM monstro WHERE id = id_monstro ) +9 < 153 THEN
-                UPDATE monstro SET id_posicao = (SELECT id_posicao FROM monstro WHERE id = id_monstro ) +9 WHERE id = id_monstro;
-            END IF;
-        END IF;
-    END IF;
-    RETURN new;
-END;
-$walk_monster$ LANGUAGE plpgsql;
-
-CREATE TRIGGER walk_monster_trigger
-    AFTER UPDATE ON jogador FOR EACH ROW EXECUTE PROCEDURE walk_monster();
-
-
 CREATE OR REPLACE FUNCTION insert_itens() RETURNS trigger as $insert_itens$
 BEGIN
     INSERT INTO instancia_item VALUES (DEFAULT, 5, 'f');
